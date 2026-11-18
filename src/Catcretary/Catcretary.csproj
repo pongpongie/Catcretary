@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>Catcretary</AssemblyName>
+    <RootNamespace>Catcretary</RootNamespace>
+    <Version>0.3.0</Version>
+    <!-- 실행 파일 아이콘. tools/make-icon.ps1 이 스프라이트에서 만든다. 없으면 기본 아이콘으로 빌드된다. -->
+    <ApplicationIcon Condition="'$(BundleSprite)' != 'false' And Exists('Assets\pet\app.ico')">Assets\pet\app.ico</ApplicationIcon>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <!-- WinForms 를 쓰는 곳은 트레이 아이콘뿐이다. 전역 using 으로 두면
+       Application, Color, KeyEventArgs 등이 WPF 타입과 충돌한다. -->
+  <ItemGroup>
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+  </ItemGroup>
+
+  <!-- Assets/pet 를 출력 폴더로 복사한다. 스프라이트가 없어도 빌드는 된다.
+       -p:BundleSprite=false 로 빌드하면 스프라이트 PNG 와 아이콘을 빼서, 에셋(재배포 금지)이 배포본에 들어가지 않는다.
+       그 빌드는 코드로 그린 임시 고양이와 도형 트레이 아이콘으로 동작한다. -->
+  <ItemGroup Condition="'$(BundleSprite)' != 'false'">
+    <None Include="Assets\pet\**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(BundleSprite)' == 'false'">
+    <None Include="Assets\pet\**" Exclude="Assets\pet\*.png;Assets\pet\*.ico;Assets\pet\*.zip" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

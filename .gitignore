@@ -1,0 +1,10 @@
+bin/
+obj/
+.vs/
+*.user
+publish/
+
+# 스프라이트 에셋은 재배포 금지 라이선스(Elthen)라 저장소에 넣지 않는다. manifest.json 만 추적.
+src/Catcretary/Assets/pet/*.png
+src/Catcretary/Assets/pet/*.zip
+src/Catcretary/Assets/pet/*.ico

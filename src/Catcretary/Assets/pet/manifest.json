@@ -1,0 +1,16 @@
+{
+  "_comment": "Elthen 2D Pixel Art Cat Sprites (256x320, 32px 셀, 10행, 오른쪽을 봄). 행: 0 idle, 1 idle2, 2 clean, 3 clean2, 4 walk(8), 5 run(8), 6 sleep, 7 paw(6), 8 jump(7), 9 scared(8). 파일이 없으면 앱은 임시 도형 고양이를 그린다.",
+  "clips": {
+    "Idle":      { "file": "Cat Sprite Sheet.png", "row": 0, "frames": 4, "fps": 5,  "loop": true },
+    "Listening": { "file": "Cat Sprite Sheet.png", "row": 7, "frames": 6, "fps": 7,  "loop": true },
+    "Thinking":  { "file": "Cat Sprite Sheet.png", "row": 3, "frames": 4, "fps": 6,  "loop": true },
+    "Done":      { "file": "Cat Sprite Sheet.png", "row": 8, "frames": 7, "fps": 12, "loop": false },
+    "Alert":     { "file": "Cat Sprite Sheet.png", "row": 9, "frames": 8, "fps": 8,  "loop": true },
+
+    "Curious":   { "file": "Cat Sprite Sheet.png", "row": 1, "frames": 4, "fps": 5,  "loop": true },
+    "Groom":     { "file": "Cat Sprite Sheet.png", "row": 2, "frames": 4, "fps": 6,  "loop": true },
+    "Walk":      { "file": "Cat Sprite Sheet.png", "row": 4, "frames": 8, "fps": 10, "loop": true, "facing": "right" },
+    "Sleep":     { "file": "Cat Sprite Sheet.png", "row": 6, "frames": 4, "fps": 2,  "loop": true },
+    "Scared":    { "file": "Cat Sprite Sheet.png", "row": 9, "frames": 8, "fps": 10, "loop": true }
+  }
+}
